@@ -1,0 +1,9 @@
+App_Data/
+packages/
+App_Start/
+bin/
+Content/
+fonts/
+obj/
+Properties/
+Scripts/

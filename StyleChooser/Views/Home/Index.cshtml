@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    if (Request.IsAuthenticated)
+    {
+        ViewBag.User = User.Identity.Name;
+    }
+    else
+    {
+        ViewBag.User = "Guest";
+    }
+}
+<div class="container" id="startContainer">
+    <div class="row">
+        <div class="col-md-6">
+            <p>@ViewBag.Title</p>
+            @using (Html.BeginForm("Styles", "Home", FormMethod.Post))
+            {
+                <h2>Welcome, @ViewBag.User. This app allows you to define your favorite style.</h2>
+                <h3>Press <span style="color: grey">Start </span> to begin to choose your favorite style.</h3>
+                <input type="hidden" value=-1 name="userChoice" />
+                <input type="submit" value="Start" />
+            }
+        </div>
+    </div>
+</div>

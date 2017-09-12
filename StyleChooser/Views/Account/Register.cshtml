@@ -1,0 +1,56 @@
+﻿@model StyleChooser.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Registration";
+}
+
+<div class="row" >
+    <div class="col-md-4 col-md-offset-2" style="text-align: left">
+        <h2>@ViewBag.Title</h2>
+    </div>
+</div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" style="text-align: left; align-items: flex-start">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2", @style = "text-align: right" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2", @style = "text-align: right" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfirmPassword, new { @class = "control-label col-md-2", @style = "text-align: right" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.ConfirmPassword)
+                @Html.ValidationMessageFor(model => model.ConfirmPassword)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-4">
+                <input type="submit" value="Register" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

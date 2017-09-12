@@ -1,0 +1,25 @@
+﻿@model List<StyleChooser.Models.Stat>
+@{
+    ViewBag.Title = "Statistics";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>Your favorite style is @ViewBag.Favorite</p>
+<div class="col-md-8 col-md-offset-2">
+    <table class="table table-striped" style="text-align: left">
+        <tr>
+            <th>Style</th>
+            <th>Click count</th>
+        </tr>
+
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.Style</td>
+                <td>@i.ClickCount</td>
+            </tr>
+        }
+    </table>
+</div>
+

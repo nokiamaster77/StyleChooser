@@ -1,0 +1,23 @@
+﻿@model StyleChooser.Models.ImageData 
+
+<div class="row">
+    <div class="col-md-3 col-md-offset-9" style="margin-top: 10px; margin-bottom: 10px">
+        <h5>Step: @Model.Step/10</h5>
+    </div>
+</div>
+@using (Html.BeginForm("Styles", "Home", FormMethod.Post))
+{
+    <div class="row" id="styleForm">
+        <div class="col-md-5 col-md-offset-1">
+            <img src="@Url.Content(Model.FirstImagePath)" class="img-responsive" alt="Picture not found" />
+            @Html.RadioButton("userChoice", Model.FirstImageIndex, new {@checked = "checked"})  @Model.FirstImageName
+        </div>
+        <div class="col-md-5">
+                <img src="@Url.Content(Model.SecondImagePath)" class="img-responsive" alt="Picture not found" />
+            @Html.RadioButton("userChoice", Model.SecondImageIndex)  @Model.SecondImageName
+        </div>
+    </div>
+    <input type="submit" value="Next step" />
+}
+
+
